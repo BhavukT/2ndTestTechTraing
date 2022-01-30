@@ -1,21 +1,23 @@
 public class TopOpeningSnapLock implements Calculation{
-    private int length;
-    private int breadth;
-    private int depth;
-    private int area;
-    private int totalGSM;
-    private int extraGSM;
-    private char fluteType;
+    private int length; // Lenght of the box
+    private int breadth; // Breadth of the box
+    private int depth; // Depth of the box
+    private int area; // Area of box
+    private int totalGSM; // TotalGsm of the box
+    private int extraGSM; // ExtraGsm of the box
+    private char fluteType; // Flute type A, B, C, D, E, F
     private Flute flute;
-    private String partition;
+    private String partition; // Partition in a box double or single 
     private int gSM; 
-    private String stichingType;
+    private String stichingType; //Pins aur Pasting
     private Stiching stiching;
-    private int stichingCostOfBox;
+    private int stichingCostOfBox; // Cost Stiching
 
     TopOpeningSnapLock(int length, int breadth, int depth, String partition, int gSM, char fluteType, String StringType, Stiching stiching){
+        // Constructor
         this.length = length;
         this.depth = depth;
+        this.flute = flute;
         this.fluteType = fluteType;
         this.breadth = breadth;
         this.partition = partition;
@@ -25,14 +27,14 @@ public class TopOpeningSnapLock implements Calculation{
 
     
 
-    public int totalCostOfManufacturing(){
-        area = areaOfBox(length, breadth, depth);
+    public int totalCostOfManufacturing(){ // Total cost of Manufacturing
+        area = areaOfBox(length, breadth, depth); // Calculate Area
         stichingCostOfBox = stiching.stichingCost(stichingType);
         extraGSM = flute.calcExtraGSM(fluteType);
         totalGSM = totalGSMOfBox(extraGSM, gSM);
-        if(partition == "single")
+        if(partition == "single") // For Single Partition
             return area * extraGSM * totalGSM  * stichingCostOfBox;
-        else
+        else// For Double Partition
             return area * extraGSM * totalGSM  * stichingCostOfBox * 3;
     }
     

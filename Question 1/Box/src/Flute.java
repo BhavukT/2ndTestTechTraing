@@ -1,6 +1,6 @@
 class Flute {
     
-    public int calcExtraGSM(char flute){
+    public int calcExtraGSM(char flute){ // Calculate Extra GSM Cost
         if(flute == 'A'){
             return 10;
         }

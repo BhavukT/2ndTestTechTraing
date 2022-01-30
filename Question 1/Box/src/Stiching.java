@@ -1,5 +1,5 @@
 public class Stiching {
-    public int stichingCost(String stichingType){
+    public int stichingCost(String stichingType){ // Stiching Cost
         if(stichingType == "pins"){
             return 10;
         }
